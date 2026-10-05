@@ -1,0 +1,177 @@
+body[data-page="clients"] .btn,
+body[data-page="client-form"] .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: auto;
+  min-height: 44px;
+  padding: 0 17px;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-decoration: none;
+  vertical-align: middle;
+}
+
+body[data-page="clients"] .btn i,
+body[data-page="client-form"] .btn i {
+  position: static;
+  flex: 0 0 auto;
+  margin: 0;
+  line-height: 1;
+}
+
+body[data-page="clients"] .btn span,
+body[data-page="client-form"] .btn span {
+  display: inline-block;
+  line-height: 1.25;
+}
+
+.client-list-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.client-add-button { min-width: 142px; }
+.client-back-button { min-width: 150px; }
+
+.client-form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-top: 22px;
+  flex-wrap: wrap;
+}
+
+.client-save-button { min-width: 190px; }
+.client-cancel-button { min-width: 105px; }
+
+.client-extract-card {
+  margin-bottom: 20px;
+  padding: 14px;
+  border: 1px dashed #5ab8ae;
+  border-radius: 14px;
+  background: rgba(15, 118, 110, .055);
+}
+
+.client-extract-upload {
+  min-height: 66px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  color: var(--text);
+}
+
+.client-extract-input {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.client-extract-icon {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  color: #0f766e;
+  background: #dff6f2;
+  font-size: 19px;
+}
+
+.client-extract-copy {
+  min-width: 0;
+  display: grid;
+  gap: 4px;
+  flex: 1;
+}
+
+.client-extract-copy b { font-size: 15px; color: var(--text); }
+.client-extract-copy small { color: var(--muted); font-size: 12px; line-height: 1.5; }
+
+.client-extract-action {
+  flex: 0 0 auto;
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 13px;
+  border-radius: 9px;
+  background: #0f766e;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.client-extract-status {
+  margin-top: 8px;
+  padding-top: 9px;
+  border-top: 1px solid rgba(15, 118, 110, .14);
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.client-extract-status.is-loading { color: #0f766e; }
+.client-extract-status.is-success { color: #15803d; }
+.client-extract-status.is-error { color: #b91c1c; }
+
+body.dark .client-extract-card {
+  background: rgba(20, 184, 166, .07);
+  border-color: rgba(94, 234, 212, .42);
+}
+
+body.dark .client-extract-icon {
+  background: rgba(94, 234, 212, .12);
+  color: #5eead4;
+}
+
+@media (max-width: 600px) {
+  body[data-page="clients"] .section-title .btn,
+  body[data-page="client-form"] .section-title .btn {
+    width: auto;
+    max-width: 100%;
+  }
+
+  .client-list-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .client-add-button {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .client-form-actions {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 112px;
+    width: 100%;
+  }
+
+  .client-form-actions .btn {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .client-extract-upload {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .client-extract-copy { flex-basis: calc(100% - 60px); }
+  .client-extract-action { width: 100%; }
+}
+
+@media (max-width: 390px) {
+  .client-form-actions { grid-template-columns: 1fr; }
+  .client-back-button { width: 100% !important; }
+}

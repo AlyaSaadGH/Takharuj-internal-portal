@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>منصة فواتير | الإجراءات</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="css/style.css?v=20260725225000">
+<script>(function(){var l=localStorage.getItem('takharuj_lang')||'ar';document.documentElement.lang=l;document.documentElement.dir=l==='ar'?'rtl':'ltr';document.documentElement.classList.add('lang-boot');})();</script>
+<link rel="stylesheet" href="css/support-chat.css?v=20260722-support4">
+</head>
+<body data-page="client-log">
+<div class="app">
+<aside class="sidebar" id="sidebar">
+ <div class="brand"><div class="logo"></div><div><h1>منصة فواتير</h1><p>نظام فواتير وإجراءات مكتبية</p></div></div>
+ <div class="side-caption">سجل إجراءات العملاء والمستخدمين والفواتير داخل حساب الشركة.</div>
+ <nav class="nav">
+  <a href="index.html" data-page="dashboard"><span class="ico"><i class="fa-solid fa-chart-line"></i></span><span>لوحة التحكم</span></a>
+  <a href="create-invoice.html" data-page="create-invoice"><span class="ico"><i class="fa-solid fa-file-invoice"></i></span><span>إنشاء فاتورة</span></a>
+  <a href="invoices.html" data-page="invoices"><span class="ico"><i class="fa-solid fa-receipt"></i></span><span>الفواتير</span></a>
+  <a href="clients-admin.html" data-page="clients"><span class="ico"><i class="fa-solid fa-users"></i></span><span>العملاء</span></a>
+  <a href="client-log.html" data-page="client-log"><span class="ico"><i class="fa-solid fa-clipboard-list"></i></span><span>الإجراءات</span></a>
+  <a href="packages.html" data-page="packages"><span class="ico"><i class="fa-solid fa-layer-group"></i></span><span>الباقات</span></a>
+  <a href="reports.html" data-page="reports"><span class="ico"><i class="fa-solid fa-chart-pie"></i></span><span>التقارير</span></a>
+  <a href="team.html" data-page="team"><span class="ico"><i class="fa-solid fa-user-shield"></i></span><span>الفريق</span></a>
+  <a href="settings.html" data-page="settings"><span class="ico"><i class="fa-solid fa-gear"></i></span><span>الإعدادات</span></a>
+ <a href="support.html" data-page="support" style="display:none"><span class="ico"><i class="fa-solid fa-headset"></i></span><span>الدعم الفني</span></a></nav>
+</aside>
+<div class="sidebar-backdrop" id="sidebarBackdrop" onclick="closeMobileMenu()"></div>
+<main class="main">
+<div class="top">
+ <button class="icon-btn mobile-menu" onclick="openMobileMenu()"><i class="fa-solid fa-bars"></i></button>
+ <div class="search"><i class="fa-solid fa-magnifying-glass"></i><input id="actionSearch" placeholder="ابحث باسم العميل أو المستخدم أو الإجراء..." oninput="renderActionLogs()"><small>Live</small></div>
+ <div class="actions"><button class="icon-btn active" id="notifBtn" onclick="toggleNotifications()"><i class="fa-regular fa-bell"></i><span class="bell-dot" id="bellDot"></span></button><button class="icon-btn" id="themeBtn" onclick="toggleTheme()"><i class="fa-solid fa-moon"></i></button><button class="lang" onclick="toggleLang()">عربي / EN</button><div class="user"><div class="avatar">A</div><div><b>Ahmed</b><br><small class="muted">Admin</small></div></div></div>
+</div>
+
+<section class="page card active">
+ <div class="section-title">
+  <div>
+   <h2 data-ar="الإجراءات" data-en="Actions Log">الإجراءات</h2>
+   <p class="muted" data-ar="سجل كامل لمن أضاف أو عدل أو حذف داخل حساب العميل." data-en="Complete log of create, update, and delete actions inside the client account.">سجل كامل لمن أضاف أو عدل أو حذف داخل حساب العميل.</p>
+  </div>
+  <span class="pill" id="actionLogCount">0</span>
+ </div>
+ <div class="row-actions" style="margin-bottom:14px;flex-wrap:wrap">
+  <button class="btn small ghost" onclick="setActionFilter('')"><i class="fa-solid fa-list"></i> الكل</button>
+  <button class="btn small ghost" onclick="setActionFilter('client')"><i class="fa-solid fa-users"></i> العملاء</button>
+  <button class="btn small ghost" onclick="setActionFilter('user')"><i class="fa-solid fa-user-shield"></i> المستخدمين</button>
+  <button class="btn small ghost" onclick="setActionFilter('invoice')"><i class="fa-solid fa-receipt"></i> الفواتير</button>
+ </div>
+ <div class="table-wrap">
+  <table class="app-table">
+   <thead>
+    <tr>
+     <th>الإجراء</th>
+     <th>الهدف</th>
+     <th>نفذه</th>
+     <th>التاريخ</th>
+     <th>الوقت</th>
+     <th>التفاصيل</th>
+    </tr>
+   </thead>
+   <tbody id="actionLogRows">
+    <tr><td colspan="6">جاري تحميل سجل الإجراءات...</td></tr>
+   </tbody>
+  </table>
+ </div>
+</section>
+</main>
+</div>
+<div class="toast" id="toast"></div>
+<div id="printArea"></div>
+<script src="js/api-client.js?v=20260726135500"></script>
+<script src="js/app.js?v=20260726135500"></script>
+<script src="js/client-log.js?v=20260922"></script>
+<script src="js/support-chat.js?v=20260725190000"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

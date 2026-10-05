@@ -1,0 +1,18 @@
+[Unit]
+Description=Fawateer Platform Django API
+After=network.target
+
+[Service]
+Type=notify
+User=appuser
+Group=appuser
+WorkingDirectory=/srv/takharuj/backend
+EnvironmentFile=/etc/takharuj.env
+ExecStart=/srv/takharuj/backend/.venv/bin/gunicorn takharuj_backend.wsgi:application --bind 127.0.0.1:8090 --workers 3 --timeout 90 --access-logfile -
+Restart=on-failure
+RestartSec=3
+PrivateTmp=true
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

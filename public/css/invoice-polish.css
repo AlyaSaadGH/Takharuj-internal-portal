@@ -1,0 +1,212 @@
+/* Final, page-scoped polish for the create-invoice workflow. */
+#create-invoice .invoice-client-fields-hidden {
+  display: none !important;
+}
+
+#create-invoice .invoice-client-picker {
+  padding: 16px !important;
+  border-radius: 16px !important;
+}
+
+#create-invoice .invoice-client-picker-head {
+  margin-bottom: 11px;
+}
+
+#create-invoice .invoice-client-picker-row {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: stretch;
+  gap: 10px;
+}
+
+#create-invoice .invoice-client-picker-row input,
+#create-invoice .invoice-add-client-link {
+  min-height: 48px;
+}
+
+#create-invoice .invoice-add-client-link {
+  white-space: nowrap;
+  padding-inline: 16px;
+}
+
+#create-invoice .invoice-items-head {
+  align-items: center !important;
+  padding: 16px 18px 12px !important;
+}
+
+#create-invoice .invoice-items-head .btn {
+  min-height: 40px;
+  padding-inline: 14px;
+  border-radius: 11px;
+}
+
+#create-invoice .invoice-items {
+  gap: 12px !important;
+  padding: 4px 18px 18px !important;
+}
+
+#create-invoice .invoice-item-row {
+  position: static !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) 84px 128px 72px 44px !important;
+  gap: 10px !important;
+  align-items: end !important;
+  width: 100% !important;
+  padding: 14px !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 15px !important;
+  background: var(--panel-soft) !important;
+}
+
+#create-invoice .invoice-item-row::before {
+  display: none !important;
+  content: none !important;
+}
+
+#create-invoice .invoice-item-row label {
+  min-width: 0;
+}
+
+#create-invoice .invoice-item-row input {
+  height: 44px;
+  background: var(--panel) !important;
+}
+
+#create-invoice .invoice-item-vat {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  min-height: 44px;
+  padding: 4px 7px;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: var(--panel);
+  color: var(--muted);
+  line-height: 1.1;
+}
+
+#create-invoice .invoice-item-vat span {
+  margin-bottom: 3px;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+#create-invoice .invoice-item-vat b {
+  color: var(--text);
+  font-size: 13px;
+}
+
+#create-invoice .invoice-item-remove {
+  position: static !important;
+  inset: auto !important;
+  grid-column: auto !important;
+  grid-row: auto !important;
+  align-self: end !important;
+  width: 44px !important;
+  min-width: 44px !important;
+  max-width: 44px !important;
+  height: 44px !important;
+  margin: 0 !important;
+  border-radius: 11px !important;
+}
+
+#create-invoice .invoice-live-totals {
+  gap: 10px;
+}
+
+#create-invoice .invoice-live-total {
+  min-height: 98px;
+  display: grid;
+  align-content: center;
+  padding: 14px;
+}
+
+#create-invoice .invoice-live-total b {
+  font-size: 18px;
+}
+
+#create-invoice .invoice-form-actions {
+  gap: 12px !important;
+  padding: 12px !important;
+  background: var(--panel) !important;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, .12);
+}
+
+@media (max-width: 700px) {
+  #create-invoice .invoice-client-picker-row {
+    grid-template-columns: 1fr;
+  }
+
+  #create-invoice .invoice-add-client-link {
+    width: 100%;
+  }
+
+  #create-invoice .invoice-items-head {
+    flex-direction: row !important;
+    align-items: center !important;
+  }
+
+  #create-invoice .invoice-items-head .btn {
+    width: auto !important;
+  }
+
+  #create-invoice .invoice-item-row {
+    grid-template-columns: 78px minmax(0, 1fr) 66px 44px !important;
+    padding: 13px !important;
+    padding-bottom: 13px !important;
+  }
+
+  #create-invoice .invoice-item-service {
+    grid-column: 1 / -1;
+  }
+
+  #create-invoice .invoice-item-quantity {
+    grid-column: 1;
+  }
+
+  #create-invoice .invoice-item-unit-price {
+    grid-column: 2;
+  }
+
+  #create-invoice .invoice-item-vat {
+    grid-column: 3;
+  }
+
+  #create-invoice .invoice-item-remove {
+    grid-column: 4 !important;
+  }
+
+  #create-invoice .invoice-live-totals {
+    grid-template-columns: 1fr !important;
+  }
+
+  #create-invoice .invoice-live-total {
+    min-height: 76px;
+  }
+
+  #create-invoice .invoice-form-actions {
+    position: static !important;
+  }
+}
+
+@media (max-width: 420px) {
+  #create-invoice .invoice-item-row {
+    grid-template-columns: 76px minmax(0, 1fr) !important;
+  }
+
+  #create-invoice .invoice-item-vat {
+    grid-column: 1;
+  }
+
+  #create-invoice .invoice-item-remove {
+    grid-column: 2 !important;
+    justify-self: end;
+  }
+}
+
+/* On wide screens the live preview starts at the top edge of its parent card. */
+@media (min-width: 1321px) {
+  #create-invoice > .card > .invoice-layout > .invoice-preview-wrap {
+    align-self: start;
+    margin-top: -92px;
+  }
+}

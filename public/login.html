@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+<title>تسجيل الدخول | منصة فواتير</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="css/login.css?v=20260922">
+<script>(function(){var l=localStorage.getItem('takharuj_lang')||'ar';document.documentElement.lang=l;document.documentElement.dir=l==='ar'?'rtl':'ltr';document.documentElement.classList.add('lang-boot');})();</script>
+</head>
+<body>
+<div class="page">
+  <section class="visual">
+    <div class="brand">
+      <div class="logo">ت</div>
+      <div><h1 data-ar="منصة فواتير" data-en="Invoice Office">منصة فواتير</h1><p data-ar="نظام فواتير وإجراءات مكتبية" data-en="Invoice and office actions system">نظام فواتير وإجراءات مكتبية</p></div>
+    </div>
+    <div class="hero">
+      <span class="tag" data-ar="بوابة آمنة" data-en="Secure portal">بوابة آمنة</span>
+      <h2 data-ar="إدارة الفواتير والعملاء من مكان واحد" data-en="Manage invoices and clients in one place">إدارة الفواتير والعملاء من مكان واحد</h2>
+      <p data-ar="يرجى تسجيل الدخول باستخدام حساب معتمد من إدارة المنشأة للوصول إلى الفواتير والعملاء وسجل الإجراءات." data-en="Sign in with an account created by company management to access invoices, clients, and backend action logs.">يرجى تسجيل الدخول باستخدام حساب معتمد من إدارة المنشأة للوصول إلى الفواتير والعملاء وسجل الإجراءات.</p>
+      <div class="features">
+        <div class="feature"><b data-ar="فواتير" data-en="Invoices">فواتير</b><span data-ar="حفظ مباشر وآمن في النظام." data-en="Direct backend saving.">حفظ مباشر وآمن في النظام.</span></div>
+        <div class="feature"><b data-ar="عملاء" data-en="Clients">عملاء</b><span data-ar="إضافة وتعديل وحذف." data-en="Add, edit, and delete.">إضافة وتعديل وحذف.</span></div>
+        <div class="feature"><b data-ar="استعادة" data-en="Recovery">استعادة</b><span data-ar="تغيير كلمة المرور من نفس الصفحة." data-en="Reset password from the same page.">تغيير كلمة المرور من نفس الصفحة.</span></div>
+      </div>
+    </div>
+    <div class="foot" data-ar="© 2026 منصة فواتير" data-en="© 2026 Invoice Office">© 2026 منصة فواتير</div>
+  </section>
+
+  <section class="auth">
+    <div class="card">
+      <div class="top">
+        <span class="secure" data-ar="● اتصال آمن" data-en="● Secure connection">● اتصال آمن</span>
+        <button class="lang" type="button" onclick="toggleLang()">English</button>
+      </div>
+      <div class="title">
+        <h2 id="title" data-ar="مرحبا بعودتك" data-en="Welcome back">مرحبا بعودتك</h2>
+        <p id="sub" data-ar="يرجى تسجيل الدخول للوصول إلى لوحة التحكم." data-en="Sign in to access your dashboard.">يرجى تسجيل الدخول للوصول إلى لوحة التحكم.</p>
+      </div>
+      <div id="msg" class="msg"></div>
+
+      <form id="loginForm" class="form active" onsubmit="login(event)">
+        <div class="field"><label data-ar="البريد الإلكتروني" data-en="Email">البريد الإلكتروني</label><div class="wrap"><span class="icon"><i class="fa-regular fa-envelope"></i></span><input id="email" type="text" required autocomplete="username" placeholder="admin@example.com"></div></div>
+        <div class="field"><label data-ar="كلمة المرور" data-en="Password">كلمة المرور</label><div class="wrap"><span class="icon"><i class="fa-solid fa-lock"></i></span><input id="password" type="password" required autocomplete="current-password" placeholder="********"><button class="password-toggle" type="button" onclick="togglePass('password',this)" data-ar="إظهار" data-en="Show">إظهار</button></div></div>
+        <div class="row"><label><input id="remember" type="checkbox" checked> <span data-ar="تذكرني" data-en="Remember me">تذكرني</span></label><span class="link" onclick="openReset()" data-ar="نسيت كلمة المرور؟" data-en="Forgot password?">نسيت كلمة المرور؟</span></div>
+        <button id="loginBtn" class="submit" type="submit" data-ar="تسجيل الدخول" data-en="Sign in">تسجيل الدخول</button>
+        <div class="hint" data-ar="إنشاء الحسابات وإضافة المستخدمين يتم من صفحة الفريق داخل حساب الشركة." data-en="Accounts and users are created from the Team page inside the company account.">إنشاء الحسابات وإضافة المستخدمين يتم من صفحة الفريق داخل حساب الشركة.</div>
+      </form>
+    </div>
+  </section>
+</div>
+
+<div id="resetModal" class="reset-modal">
+  <div class="reset-card">
+    <div id="resetStep1" class="reset-step active">
+      <h3 data-ar="استعادة كلمة المرور" data-en="Recover password">استعادة كلمة المرور</h3>
+      <p data-ar="يرجى إدخال البريد الإلكتروني للحساب، ثم استخدام رمز الاستعادة الظاهر." data-en="Enter your account email, then use the recovery code shown to you.">يرجى إدخال البريد الإلكتروني للحساب، ثم استخدام رمز الاستعادة الظاهر.</p>
+      <div class="field"><label data-ar="البريد الإلكتروني" data-en="Email">البريد الإلكتروني</label><div class="wrap"><span class="icon"><i class="fa-regular fa-envelope"></i></span><input id="resetIdentity" type="email" placeholder="name@example.com"></div></div>
+      <div class="reset-actions"><button id="sendResetBtn" class="submit" type="button" onclick="sendResetCode()" data-ar="إرسال رمز الاستعادة" data-en="Send recovery code">إرسال رمز الاستعادة</button><button class="cancel" type="button" onclick="closeReset()" data-ar="إلغاء" data-en="Cancel">إلغاء</button></div>
+    </div>
+    <div id="resetStep2" class="reset-step">
+      <h3 data-ar="إدخال رمز الاستعادة" data-en="Enter recovery code">إدخال رمز الاستعادة</h3>
+      <p data-ar="يرجى نسخ الرمز الظاهر ووضعه هنا للانتقال إلى تغيير كلمة المرور." data-en="Copy the shown code and paste it here to continue.">يرجى نسخ الرمز الظاهر ووضعه هنا للانتقال إلى تغيير كلمة المرور.</p>
+      <div class="field"><label data-ar="رمز الاستعادة" data-en="Recovery code">رمز الاستعادة</label><div class="wrap"><span class="icon">#</span><input id="resetCodeInput" class="code-box" autocomplete="one-time-code" placeholder="الرمز"></div></div>
+      <div id="demoCodeBox" class="demo-code"></div>
+      <div class="reset-actions"><button class="submit" type="button" onclick="verifyResetCode()" data-ar="تحقق" data-en="Verify">تحقق</button><button class="cancel" type="button" onclick="showResetStep(1)" data-ar="رجوع" data-en="Back">رجوع</button></div>
+    </div>
+    <div id="resetStep3" class="reset-step">
+      <h3 data-ar="كلمة مرور جديدة" data-en="New password">كلمة مرور جديدة</h3>
+      <p data-ar="يرجى إدخال كلمة المرور الجديدة وتأكيدها." data-en="Enter and confirm your new password.">يرجى إدخال كلمة المرور الجديدة وتأكيدها.</p>
+      <div class="field"><label data-ar="كلمة المرور الجديدة" data-en="New password">كلمة المرور الجديدة</label><div class="wrap"><span class="icon"><i class="fa-solid fa-lock"></i></span><input id="newResetPassword" type="password" minlength="6" placeholder="6 أحرف على الأقل"></div></div>
+      <div class="field"><label data-ar="تأكيد كلمة المرور" data-en="Confirm password">تأكيد كلمة المرور</label><div class="wrap"><span class="icon"><i class="fa-solid fa-lock"></i></span><input id="confirmResetPassword" type="password" minlength="6" placeholder="إعادة كتابة كلمة المرور"></div></div>
+      <div class="reset-actions"><button id="saveResetBtn" class="submit" type="button" onclick="saveNewPassword()" data-ar="حفظ كلمة المرور" data-en="Save password">حفظ كلمة المرور</button><button class="cancel" type="button" onclick="closeReset()" data-ar="إلغاء" data-en="Cancel">إلغاء</button></div>
+    </div>
+  </div>
+</div>
+
+<script src="js/api-client.js?v=20260725215000"></script>
+<script src="js/login.js?v=20260922"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
