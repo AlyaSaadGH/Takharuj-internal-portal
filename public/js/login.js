@@ -59,3 +59,9 @@ if(params.get('reset')==='1'||(resetUid&&resetToken)){
   setTimeout(()=>{openReset();if(resetUid&&resetToken)showResetStep(3);},0);
 }
 applyLang();
+
+function enterDemo(){
+  API_CONFIG.clearToken();
+  sessionStorage.setItem('takharuj_demo_preview','1');
+  location.href=API_CONFIG.pageUrl('index.html');
+}

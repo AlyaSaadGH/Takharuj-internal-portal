@@ -28,3 +28,5 @@ body.en .visual{border-right:0}
 .reset-card p{color:#647487}.cancel{background:#fff;color:#334155;border-color:#d8e3ea;border-radius:10px}
 .demo-code{background:#fff7ed;border-color:#fed7aa;color:#9a3412}
 @media(max-width:760px){body{background:#eef4f8}.card{border-radius:14px}.auth{background:#eef4f8}}
+
+.demo-entry{margin-top:12px;background:transparent;color:#15384b;border:1px solid #15384b}.demo-entry:hover{background:#edf4f7}.demo-entry:focus-visible{outline:3px solid #90b5c9;outline-offset:3px}
