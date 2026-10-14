@@ -42,6 +42,11 @@ public/                  Frontend pages and assets
 deploy/                  Sanitized deployment examples
 requirements.txt         Python dependencies
 ```
+## Live Demo
+
+[View Live Demo](https://alyasaadgh.github.io/Takharuj-internal-portal/login.html)
+
+Click “Explore demo” to browse the platform with sample data.
 
 ## Local Setup
 
