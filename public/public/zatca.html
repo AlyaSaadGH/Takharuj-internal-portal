@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>منصة فواتير | الربط الإلكتروني</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css?v=20260725225000">
+  <link rel="stylesheet" href="css/zatca.css?v=20260718-ui">
+<link rel="stylesheet" href="css/support-chat.css?v=20260722-support4">
+</head>
+<body data-page="zatca">
+  <main class="main zatca-standalone">
+    <header class="top zatca-top">
+      <div class="zatca-top-start">
+        <a href="settings.html" class="btn ghost zatca-back"><i class="fa-solid fa-arrow-right"></i><span data-i18n="back">العودة للإعدادات</span></a>
+      </div>
+      <div class="actions zatca-account-actions">
+        <div class="zatca-notification-wrap">
+          <button class="zatca-toolbar-btn" id="notifBtn" type="button" onclick="toggleZatcaNotifications()" aria-label="الإشعارات" aria-expanded="false"><span class="zatca-bell-dot"></span><i class="fa-regular fa-bell"></i></button>
+          <div class="zatca-notification-menu" id="notifMenu" hidden><b data-i18n="notifications">الإشعارات</b><p data-i18n="noNotifications">لا توجد إشعارات جديدة حاليًا.</p></div>
+        </div>
+        <button class="zatca-toolbar-btn" id="themeBtn" type="button" onclick="toggleZatcaTheme()" aria-label="تبديل المظهر"><i class="fa-solid fa-moon"></i></button>
+        <button class="zatca-lang-btn" id="langBtn" type="button" onclick="toggleZatcaLang()">English</button>
+        <div class="zatca-account-card">
+          <div class="avatar"><i class="fa-solid fa-user"></i></div>
+          <div class="zatca-account-copy"><b id="accountName">مدير فواتير</b><small id="accountRole">مدير المنصة</small></div>
+          <button class="zatca-logout" type="button" onclick="logoutZatca()"><i class="fa-solid fa-right-from-bracket"></i><span data-i18n="logout">تسجيل خروج</span></button>
+        </div>
+      </div>
+    </header>
+
+    <section class="page active zatca-page">
+      <div class="section-title zatca-heading">
+        <div>
+          <span class="zatca-eyebrow"><i class="fa-solid fa-shield-halved"></i> ZATCA · Fatoora Phase 2</span>
+          <h2 data-i18n="title">الربط الإلكتروني للفوترة والامتثال</h2>
+          <p class="muted" data-i18n="subtitle">اربط منشأتك بمنصة فاتورة لإصدار Compliance CSID وتجهيز مسار التوقيع الإلكتروني.</p>
+        </div>
+        <div class="zatca-secure"><i class="fa-solid fa-lock"></i><span><b data-i18n="secure">اتصال آمن</b><small data-i18n="encrypted">البيانات الحساسة مشفّرة</small></span></div>
+      </div>
+
+      <div class="zatca-layout">
+        <aside class="card zatca-guide">
+          <div class="zatca-guide-icon"><i class="fa-solid fa-building-shield"></i></div>
+          <h3 data-i18n="stepsTitle">تهيئة منشأتك بخطوات واضحة</h3>
+          <p class="muted" data-i18n="stepsIntro">أدخل بيانات المنشأة كما تظهر في تسجيلها لدى الهيئة، ثم استخدم رمز التحقق الصادر من بوابة فاتورة.</p>
+          <div class="zatca-steps">
+            <div><span>1</span><p><b data-i18n="step1Title">أنشئ رمز OTP</b><small data-i18n="step1Text">من بوابة فاتورة ضمن إدارة الأجهزة والحلول.</small></p></div>
+            <div><span>2</span><p><b data-i18n="step2Title">راجع بيانات المنشأة</b><small data-i18n="step2Text">تأكد من الرقم الضريبي ونوع الفواتير.</small></p></div>
+            <div><span>3</span><p><b data-i18n="step3Title">ابدأ الربط الآمن</b><small data-i18n="step3Text">سيتم توليد CSR وحفظ بيانات CSID مشفّرة.</small></p></div>
+          </div>
+          <div class="zatca-alert">
+            <i class="fa-solid fa-circle-info"></i>
+            <div><b data-i18n="otpHelpTitle">كيف تحصل على رمز OTP؟</b><p data-i18n="otpHelp">سجّل الدخول إلى بوابة هيئة الزكاة والضريبة والجمارك، افتح منصة فاتورة ثم «إدارة الأجهزة والحلول»، واختر تهيئة جهاز أو حل جديد. انسخ الرمز المكوّن من 6 أرقام قبل انتهاء صلاحيته.</p></div>
+          </div>
+          <div class="zatca-privacy"><i class="fa-solid fa-eye-slash"></i><span data-i18n="privacy">لن يتم حفظ رمز OTP أو إظهاره في سجل العمليات.</span></div>
+        </aside>
+
+        <section class="card zatca-form-card">
+          <div class="section-title">
+            <div><h2 data-i18n="formTitle">بيانات تهيئة المنشأة</h2><p class="muted" data-i18n="required">جميع الحقول مطلوبة لإتمام الربط.</p></div>
+            <div class="zatca-form-badges"><span id="statusBadge" class="zatca-status"><i class="fa-solid fa-circle-xmark"></i><span data-i18n="unlinked">غير مرتبط</span></span><span class="zatca-sandbox"><i class="fa-solid fa-flask"></i> Sandbox</span></div>
+          </div>
+          <div id="formError" role="alert" class="zatca-error" hidden></div>
+          <form id="zatcaForm" class="zatca-form" novalidate>
+            <label class="zatca-wide"><span data-i18n="orgName">اسم المنشأة بالإنجليزية</span><div class="zatca-input"><i class="fa-regular fa-building"></i><input id="organizationName" name="organization_name" required maxlength="255" pattern="[a-zA-Z0-9\s.,\-' ]+" autocomplete="organization" placeholder="Customer Company" dir="ltr"></div></label>
+            <label><span data-i18n="city">المدينة</span><div class="zatca-input"><i class="fa-solid fa-location-dot"></i><input id="locationCity" name="location_city" required maxlength="100" data-placeholder-ar="الرياض" data-placeholder-en="Riyadh" placeholder="الرياض"></div></label>
+            <label><span>اسم الشارع بالإنجليزية</span><div class="zatca-input"><i class="fa-solid fa-road"></i><input id="streetName" name="street_name" required maxlength="255" placeholder="King Fahd Road" dir="ltr"></div></label>
+            <label><span>رقم المبنى</span><div class="zatca-input"><i class="fa-solid fa-building"></i><input id="buildingNumber" name="building_number" required inputmode="numeric" maxlength="4" pattern="[0-9]{4}" placeholder="1234" dir="ltr"></div></label>
+            <label><span>الحي بالإنجليزية</span><div class="zatca-input"><i class="fa-solid fa-map"></i><input id="citySubdivision" name="city_subdivision" required maxlength="100" placeholder="Al Faisaliyah" dir="ltr"></div></label>
+            <label><span>الرمز البريدي</span><div class="zatca-input"><i class="fa-solid fa-envelopes-bulk"></i><input id="postalZone" name="postal_zone" required inputmode="numeric" maxlength="5" pattern="[0-9]{5}" placeholder="39921" dir="ltr"></div></label>
+            <input type="hidden" name="business_category" value="Legal Services">
+            <label><span data-i18n="invoiceType">نوع الفواتير</span><div class="zatca-input"><i class="fa-regular fa-file-lines"></i><select id="invoiceType" name="invoice_type"><option value="both" data-ar="مبسطة وضريبية" data-en="Simplified and standard">مبسطة وضريبية</option><option value="simplified" data-ar="مبسطة" data-en="Simplified">مبسطة</option><option value="standard" data-ar="ضريبية قياسية" data-en="Standard tax invoice">ضريبية قياسية</option></select></div></label>
+            <label><span class="zatca-label-row"><span data-i18n="vat">الرقم الضريبي</span><small id="vatCount">0 / 15</small></span><div class="zatca-input"><i class="fa-solid fa-hashtag"></i><input id="vatNumber" name="vat_number" required inputmode="numeric" autocomplete="off" maxlength="15" pattern="3[0-9]{13}3" placeholder="300000000000003" dir="ltr"></div></label>
+            <label><span class="zatca-label-row"><span data-i18n="otp">رمز التحقق OTP</span><small id="otpCount">0 / 6</small></span><div class="zatca-input"><i class="fa-solid fa-key"></i><input id="zatcaOtp" name="zatca_otp" required inputmode="numeric" autocomplete="one-time-code" maxlength="6" pattern="[0-9]{6}" placeholder="••••••" dir="ltr"></div></label>
+            <button id="submitBtn" type="submit" class="btn zatca-submit"><span id="buttonText" data-i18n="submit">تحقق وربط المنشأة</span><i class="fa-solid fa-arrow-left"></i><span id="spinner" class="zatca-spinner" hidden></span></button>
+          </form>
+          <div class="zatca-form-foot"><i class="fa-solid fa-shield"></i><span data-i18n="keyNote">يتم توليد المفتاح الخاص داخل الخادم وتشفيره قبل الحفظ في قاعدة البيانات.</span></div>
+          <button id="productionCsidBtn" type="button" class="btn ghost" hidden><i class="fa-solid fa-certificate"></i> إصدار Production CSID بعد اجتياز اختبارات الامتثال</button>
+        </section>
+      </div>
+    </section>
+  </main>
+
+<div id="successModal" class="zatca-modal" hidden role="dialog" aria-modal="true" aria-labelledby="successTitle">
+  <div class="zatca-modal-card">
+    <div class="zatca-success-icon"><i class="fa-solid fa-check"></i></div>
+    <span class="zatca-modal-kicker">ZATCA Sandbox</span>
+    <h2 id="successTitle" data-i18n="successTitle">تم الربط بنجاح</h2>
+    <p id="successMessage" class="muted"></p>
+    <div class="zatca-success-note"><i class="fa-solid fa-certificate"></i><span data-i18n="successNote">تم إصدار Compliance CSID وحفظ بيانات التوقيع مشفّرة. أصبح الحل جاهزًا لاختبارات الامتثال التالية.</span></div>
+    <button id="closeModal" class="btn" type="button"><i class="fa-solid fa-arrow-right-to-bracket"></i><span data-i18n="continue">متابعة</span></button>
+  </div>
+</div>
+
+<script src="js/api-client.js?v=20261014-demo1"></script>
+<script src="js/zatca.js?v=20260922"></script>
+<script src="js/support-chat.js?v=20260725190000"></script>
+</body>
+</html>

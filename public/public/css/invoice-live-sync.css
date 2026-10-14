@@ -1,0 +1,8 @@
+#create-invoice .invoice-preview-wrap{display:flex;justify-content:center;align-items:flex-start;overflow-x:hidden!important;overflow-y:visible!important;max-width:100%;padding:clamp(10px,2vw,26px)!important}
+#create-invoice #preview{width:100%;min-width:0;display:flex;justify-content:center;align-items:flex-start}
+#create-invoice #preview .invoice-paper{box-sizing:border-box;max-width:100%!important;transform-origin:top center;transition:width .2s ease,max-width .2s ease,opacity .16s ease}
+#create-invoice #preview .invoice-paper.standard{width:min(100%,700px)!important;min-width:0!important}
+#create-invoice #preview .invoice-paper.simple{width:min(100%,380px)!important;max-width:380px!important;min-width:0!important;min-height:620px!important;padding:22px 16px 28px!important}
+#create-invoice #preview .invoice-table{max-width:100%!important}
+#create-invoice .invoice-actions .btn.invoice-type-active{border-color:var(--cyan)!important;box-shadow:0 0 0 3px rgba(40,199,197,.13)!important}
+@media(max-width:700px){#create-invoice #preview .invoice-paper.standard{font-size:11px}#create-invoice #preview .invoice-paper.standard .info-row{grid-template-columns:1fr}#create-invoice #preview .invoice-paper.standard .invoice-table th,#create-invoice #preview .invoice-paper.standard .invoice-table td{font-size:8px!important;padding:4px 2px!important}}

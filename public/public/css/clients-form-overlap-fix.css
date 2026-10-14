@@ -1,0 +1,13 @@
+#platformOnboarding{overflow:visible!important}
+#platformOnboarding .form{grid-template-columns:repeat(4,minmax(0,1fr))!important;width:100%;gap:14px!important}
+#platformOnboarding .form label{min-width:0!important;width:100%;overflow:hidden}
+#platformOnboarding .form input,#platformOnboarding .form select{display:block;width:100%!important;max-width:100%!important;min-width:0!important;box-sizing:border-box;text-overflow:ellipsis;white-space:nowrap;overflow:hidden}
+#platformOnboarding #subCompanyPlan{padding-inline-end:34px!important}
+@media(max-width:1250px){#platformOnboarding .form{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
+@media(max-width:950px){#platformOnboarding .form{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:600px){#platformOnboarding .form{grid-template-columns:1fr!important}}
+#platformOnboarding>.row-actions{display:flex!important;align-items:center!important;justify-content:flex-start!important;gap:12px!important;flex-wrap:wrap!important;overflow:visible!important}
+#platformOnboarding>.row-actions .btn{position:relative!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:9px!important;width:auto!important;min-width:150px!important;min-height:48px!important;height:48px!important;padding:0 18px!important;margin:0!important;white-space:nowrap!important;line-height:1!important;overflow:visible!important}
+#platformOnboarding>.row-actions .btn i{position:static!important;inset:auto!important;display:inline-block!important;flex:0 0 auto!important;width:auto!important;height:auto!important;margin:0!important;transform:none!important;line-height:1!important}
+#platformOnboarding>.row-actions .btn span{position:static!important;display:inline-block!important;line-height:1.2!important;margin:0!important}
+@media(max-width:500px){#platformOnboarding>.row-actions .btn{width:100%!important}}
